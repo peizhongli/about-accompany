@@ -1,12 +1,16 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import top from './assets/top.png'
 import bottom from './assets/bottom.png'
 import face from './assets/face.png'
 
+const tips = ['PPDOG😍', '爱你呦🥰', '辛苦啦😘', '你最可爱😗', '在想你😎', '喝杯水吧☕']
 function App() {
   const timer = useRef(null)
+  const tipRef = useRef(null)
   const startX = useRef(0)
   const startY = useRef(0)
+  const intervalTimer = useRef(null)
+  const [tip, setTip] = useState(' ')
 
   const onDrag = ({ screenX, screenY }) => {
     if (Math.abs(startX.current - screenX) > 10 || Math.abs(startY.current - screenY) > 10) {
@@ -15,20 +19,18 @@ function App() {
   }
 
   useEffect(() => {
-    const mousedownListener = ({ target, screenX, screenY }) => {
+    const mousedownListener = ({ screenX, screenY }) => {
       startX.current = screenX
       startY.current = screenY
       // 长按触发
       timer.current = window.setTimeout(() => {
         // target.style.cursor = 'grabbing'
-        console.log('11111 :>> ', 11111)
         window.addEventListener('mousemove', onDrag)
       }, 200)
     }
-    const mouseupListener = ({ target }) => {
+    const mouseupListener = () => {
       // target.style.cursor = ''
       window.clearTimeout(timer.current)
-      console.log('11111 :>> ', 2222)
       window.removeEventListener('mousemove', onDrag)
     }
 
@@ -39,11 +41,31 @@ function App() {
       window.removeEventListener('mouseup', mouseupListener)
     }
   })
+
+  useEffect(() => {
+    intervalTimer.current = window.setInterval(() => {
+      const index = Math.floor(Math.random() * 6)
+      setTip(tips[index])
+      tipRef.current.style.opacity = 1
+      window.setTimeout(() => {
+        tipRef.current.style.opacity = 0
+      }, 4000)
+    }, 1000 * 6)
+    return () => {
+      window.clearInterval(intervalTimer)
+    }
+  }, [])
+
   return (
     <div className="wrap">
-      <img className="top" src={top} />
-      <img className="face" src={face} />
-      <img className="bottom" src={bottom} />
+      <div className="tip" ref={tipRef} style={{ opacity: 0 }}>
+        {tip}
+      </div>
+      <div className="main">
+        <img className="top" src={top} />
+        <img className="face" src={face} />
+        <img className="bottom" src={bottom} />
+      </div>
     </div>
   )
 }

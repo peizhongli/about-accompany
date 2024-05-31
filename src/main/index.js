@@ -1,6 +1,6 @@
 import {
   app,
-  shell,
+  globalShortcut,
   Tray,
   BrowserWindow,
   ipcMain,
@@ -17,7 +17,7 @@ function createWindow() {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 130,
-    height: 130,
+    height: 150,
     x: -100,
     y: -100,
     show: false,
@@ -25,12 +25,11 @@ function createWindow() {
     titleBarStyle: 'customButtonsOnHover', // 隐藏mac红绿灯
     transparent: true, // 设置透明窗口
     frame: false, // 无框窗口
-    resizable: false,
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
       sandbox: false
     },
-    // skipTaskbar: true,
+    skipTaskbar: true,
     title: 'about accompany',
     icon: join(__dirname, '../../resources/icon.png')
   })
@@ -60,16 +59,23 @@ function createTray() {
   const icon = nativeImage.createFromPath(join(__dirname, '../../resources/icon.png'))
   const tray = new Tray(icon)
   const contextMenu = Menu.buildFromTemplate([
-    { label: 'Item1', type: 'radio' },
-    { label: 'Item2', type: 'radio' },
-    { label: 'Item3', type: 'radio', checked: true },
-    { label: 'Item4', type: 'radio' }
+    {
+      label: '下次见👋',
+      click: () => app.quit()
+    }
   ])
   tray.setContextMenu(contextMenu)
-  tray.setToolTip('This is my application')
-  tray.setTitle('This is my title')
+  tray.setToolTip('💙About Accompany')
+  tray.setTitle('💙About Accompany')
   return tray
 }
+
+// function createGlobalShortcut() {
+//   globalShortcut.register('CommandOrControl+Q', () => {
+//     console.log('CommandOrControl+X is pressed')
+//   })
+//   console.log(globalShortcut.isRegistered('CommandOrControl+X'))
+// }
 
 function createMenu() {
   const menu = new Menu()
@@ -99,16 +105,16 @@ function startListen(mainWindow) {
   })
 }
 
-app.setUserTasks([
-  {
-    program: process.execPath,
-    arguments: '--new-window',
-    iconPath: process.execPath,
-    iconIndex: 0,
-    title: 'New Window',
-    description: 'Create a new window'
-  }
-])
+// app.setUserTasks([
+//   {
+//     program: process.execPath,
+//     arguments: '--new-window',
+//     iconPath: process.execPath,
+//     iconIndex: 0,
+//     title: 'New Window',
+//     description: 'Create a new window'
+//   }
+// ])
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
