@@ -1,0 +1,86 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+ul {
+  list-style: none;
+}
+
+.wrap {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  /* 火狐 */
+  -moz-user-select: none;
+  /* Safari 和 欧朋 */
+  -webkit-user-select: none;
+  /* IE10+ and Edge */
+  -ms-user-select: none;
+  /* Standard syntax 标准语法(谷歌) */
+  user-select: none;
+}
+
+.wrap:hover {
+  cursor: pointer;
+}
+
+.top,
+.bottom,
+.face {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  pointer-events: none;
+  /* 火狐 */
+  -moz-user-select: none;
+  /* Safari 和 欧朋 */
+  -webkit-user-select: none;
+  /* IE10+ and Edge */
+  -ms-user-select: none;
+  /* Standard syntax 标准语法(谷歌) */
+  user-select: none;
+}
+
+.top {
+  z-index: 10;
+  animation: shake 0.55s linear infinite alternate;
+}
+
+.face {
+  left: 2px;
+  z-index: 11;
+  animation: shake 0.55s linear infinite alternate;
+  opacity: 0;
+}
+
+.wrap:hover .face {
+  opacity: 1;
+  transition: all 0.5s;
+}
+
+.bottom {
+  z-index: 9;
+}
+
+@keyframes shake {
+  from {
+    /* transform: rotate(-2deg); */
+  }
+  to {
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes shine {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
