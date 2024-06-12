@@ -1,11 +1,12 @@
-import './assets/base.css'
+import '../../assets/base.css'
 
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
+import Setting from './Setting'
+import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <Setting />
   </React.StrictMode>
 )

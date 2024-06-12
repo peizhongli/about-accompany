@@ -1,0 +1,39 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+  transition: all 0.5s;
+}
+
+.wrap {
+  position: relative;
+  height: 210px;
+}
+
+.pop {
+  position: relative;
+  filter: drop-shadow(0 0 1px #888);
+  color: #333;
+  background-color: #fff;
+  user-select: none;
+}
+
+.pop::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  display: block;
+  border-top: 6px solid #fff;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
