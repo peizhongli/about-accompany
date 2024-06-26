@@ -9,11 +9,11 @@
 }
 
 .dog-wrap {
-  background-image: url(../../../../../../assets/body.png);
+  background-image: url(../../../../assets/body.png);
 }
 
 .cat-wrap {
-  background-image: url(../../../../../../assets/body2.png);
+  background-image: url(../../../../assets/body2.png);
 }
 
 .head {
@@ -28,12 +28,12 @@
 }
 
 .dog-wrap .head {
-  background-image: url(../../../../../../assets/head.png);
+  background-image: url(../../../../assets/head.png);
   animation-name: shake;
 }
 
 .cat-wrap .head {
-  background-image: url(../../../../../../assets/head2.png);
+  background-image: url(../../../../assets/head2.png);
   animation-name: shake2;
 }
 
