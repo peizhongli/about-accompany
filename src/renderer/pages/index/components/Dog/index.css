@@ -9,11 +9,11 @@
 }
 
 .dog-wrap {
-  background-image: url(../../../../assets/body.png);
+  background-image: url(/body.png);
 }
 
 .cat-wrap {
-  background-image: url(../../../../assets/body2.png);
+  background-image: url(/body2.png);
 }
 
 .head {
@@ -28,36 +28,36 @@
 }
 
 .dog-wrap .head {
-  background-image: url(../../../../assets/head.png);
+  background-image: url(/head.png);
   animation-name: shake;
 }
 
 .cat-wrap .head {
-  background-image: url(../../../../assets/head2.png);
+  background-image: url(/head2.png);
   animation-name: shake2;
 }
 
 .dog-wrap.laughing {
-  background-image: url(../../../../assets/heart.png), url(../../../../assets/body.png);
+  background-image: url(/heart.png), url(/body.png);
 }
 
 .cat-wrap.laughing {
-  background-image: url(../../../../assets/heart.png), url(../../../../assets/body2.png);
+  background-image: url(/heart.png), url(/body2.png);
 }
 
 .dog-wrap.laughing .head {
-  background-image: url(../../../../assets/face.png), url(../../../../assets/laugh.png);
+  background-image: url(/face.png), url(/laugh.png);
 }
 
 .dog-wrap:hover .head {
   cursor: pointer;
-  background-image: url(../../../../assets/face.png), url(../../../../assets/head.png);
+  background-image: url(/face.png), url(/head.png);
 }
 
 .cat-wrap:hover .head,
 .cat-wrap.laughing .head {
   cursor: pointer;
-  background-image: url(../../../../assets/face2.png), url(../../../../assets/head2.png);
+  background-image: url(/face2.png), url(/head2.png);
 }
 
 @keyframes shake {

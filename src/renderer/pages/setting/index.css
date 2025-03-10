@@ -112,11 +112,11 @@ button.primary {
 }
 
 .preview.dog {
-  background: url(../../assets/head.png), url(../../assets/body.png);
+  background: url(/head.png), url(/body.png);
   background-size: 100%;
 }
 
 .preview.cat {
-  background: url(../../assets/head2.png), url(../../assets/body2.png);
+  background: url(/head2.png), url(/body2.png);
   background-size: 100%;
 }

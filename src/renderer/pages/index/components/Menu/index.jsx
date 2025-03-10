@@ -1,6 +1,6 @@
 import { forwardRef, useImperativeHandle, useRef } from 'react'
-import touch from '../../../../assets/touch.png'
-import setting from '../../../../assets/setting.png'
+import touch from '/touch.png'
+import setting from '/setting.png'
 import './index.css'
 
 const MENU_LIST = [
